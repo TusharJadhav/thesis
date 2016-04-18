@@ -1,0 +1,122 @@
+\appendices
+%
+% If you only have one appendix, you should change the above to:
+%\appendix
+%
+
+\chapter{GLOSSARY AND ACRONYMS}
+
+\begin{itemize}
+\item API : ApplicationProgrammingInterface
+\item ATL : Active Template Library
+\item AVL : G. M. Adelson-Velskii and E. M. Landis
+\item BST : Binary Search Tree
+\item CAD : Computer Aided Design
+\item CADD : Computer Aided Design and Drafting
+\item CAM : Computer Aided Manufacturing
+\item COM : Component Object Model
+\item DLL : Dynamic Link Library
+\item DT(P) : Delaunay Triangulation for a set P
+\item DWORD : Double Word
+\item ESRI : Environmental Systems Research Institute
+\item GIS : Geographic Information Science
+\item GPS : Global Positioning System
+\item GUI : Graphical User Interface
+\item IDE : Integrated Development Environment
+\item MFC : Microsoft Foundation Classes
+\item MSDN : Microsoft Developer Network
+\item MVVM : Model-View-View Model
+\item RC : Release Candidate
+\item SDK : Software Development Kit
+\item UI : User Interface
+\item WPF : Windows Presentation Foundation
+\end{itemize}
+
+\chapter{ALGORITHM PSEUDO CODE}
+
+\noindent
+Pseudo code of the implemented algorithm: \newline
+
+\noindent
+METHOD Algorithm
+    \newline \hspace*{2em}Generate random lines
+    \newline \hspace*{2em}Initialize Event Queue Q using the randomly generated lines
+    \newline \hspace*{2em}Initialize Status Structure $\tau$;
+    \newline \newline \hspace*{2em}CALL FindIntesections with Q and $\tau$
+\newline END METHOD
+
+\noindent
+\newline METHOD FindIntersections(EventQueue Q, StatusStructure $\tau$)
+    \newline \hspace*{2em} Event Point P = Left most leaf in the Event Queue Q;
+    \newline \hspace*{2em} WHILE( P != 0 )
+        \newline \hspace*{4em} CALL HandleEventPoint with P and $\tau$
+        \newline \hspace*{4em} P = Next adjacent right leaf in Event Queue Q;
+    \newline \hspace*{2em} END WHILE
+\newline END METHOD \newline
+
+\noindent
+\newline METHOD HandleEventPoint(EventPoint P, StatusStructure $\tau$)
+    \newline \hspace*{2em} arrayU = Set of line segments whose upper end point is P;
+    \newline \hspace*{2em} arrayL = Set of line segments whose lower end point is P;
+    \newline \hspace*{2em} arrayC = Set of line segments which contains P somewhere in the middle; \newline
+    \newline \hspace*{2em} arrayUnion = Unionof arrayU, arrayL and arrayC; \newline
+    \newline \hspace*{2em} IF arrayUnion contains more than 1 element
+        \newline \hspace*{4em} P is the intersection point and hence  record it;
+    \newline \hspace*{2em} END IF \newline
+    \newline \hspace*{2em} arrUnionLowerMiddle = Union of arrayL and arrayC;
+    \newline \hspace*{2em} FOR EACH element in arrUnionLowerMiddle
+        \newline \hspace*{4em} remove element from Status Structure $\tau$;
+    \newline \hspace*{2em} arrUnionUpperMiddle = Union of arrayU and arrayC;
+    \newline \hspace*{2em} FOR EACH element in arrUnionUpperMiddle
+        \newline \hspace*{4em} remove element from Status Structure $\tau$; \newline
+    \newline \hspace*{2em} If arrUnionUpperMiddle contains no elements
+        \newline \hspace*{4em} LeftNode = Node to the Left of element in Status Structure $\tau$;
+        \newline \hspace*{4em} RightNode = Node to the right of element in Status Structure $\tau$; \newline
+        \newline \hspace*{4em} CALL FindNewEvent with LeftNode, RightNode and P;
+    \newline \hspace*{2em} ELSE IF
+        \newline \hspace*{4em} LeftMostSeg = Left Most segment in arrUnionUpperMiddle;
+        \newline \hspace*{4em} LeftNeighbor = Left neigbour of LeftMostSeg in $\tau$; \newline
+        \newline \hspace*{4em} CALL FindNewEvent with LeftNeighbor, LeftMostSeg and P \newline
+        \newline \hspace*{4em} RightMostSeg = Right Most segment in arrUnionUpperMiddle;
+        \newline \hspace*{4em} RightNeighbor = Right neighbor of RightMostSeg in $\tau$; \newline
+        \newline \hspace*{4em} CALL FindNewEvent with RightMosstSeg, RightNeighbor and P
+    \newline \hspace*{2em} END IF
+\newline END METHOD \newline
+
+\noindent
+\newline METHOD FindNewEvent(leftSeg, rightSeg, P)
+    \newline \hspace*{2em} IF leftSeg and rightSeg intersect below the sweep line or on it and to the right of P and intersection point in not yet present in the Event Queue Q
+    \newline \hspace*{4em} Intersection Point detected and hence report it;
+    \newline \hspace*{2em} END IF
+\newline END METHOD \newline
+
+\chapter{RANDOM NUMBER GENERATION CODE}
+
+\noindent /* RAND.C: This program seeds the random-number generator with the time, then displays 10 random integers */ \newline
+
+\noindent \#include $<$stdlib.h$>$ \newline
+\noindent \#include $<$stdio.h$>$ \newline
+\noindent \#include $<$time.h$>$ \newline
+
+\noindent void main( void ) \newline
+\noindent \{
+   \newline \hspace*{2em} int i;
+   \newline \hspace*{2em} /* Seed the random-number generator with current time so that the numbers
+   \newline \hspace*{2em}    will be different every time we run */ \newline
+   \newline \hspace*{2em} srand( (unsigned)time( NULL ) );
+   \newline \hspace*{2em} /* Display 10 numbers. */
+   \newline \hspace*{2em} for( i = 0;   i $<$ 10;i++ )
+   \newline \hspace*{4em} printf( ``  \%6d$\backslash$n", rand() );
+\newline \noindent \}
+
+\noindent \newline Output \newline
+\noindent \newline 60
+\noindent \newline 86
+\noindent \newline 22
+\noindent \newline 69
+\noindent \newline 79
+\noindent \newline 73
+\noindent \newline 10
+\noindent \newline 1
+\noindent \newline 83
+\noindent \newline 33

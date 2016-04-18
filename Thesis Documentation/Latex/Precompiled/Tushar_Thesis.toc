@@ -1,0 +1,68 @@
+\contentsline {schapter}{ABSTRACT}{vi}
+\contentsline {schapter}{LIST OF TABLES}{x}
+\contentsline {schapter}{LIST OF FIGURES}{xi}
+\contentsline {schapter}{ACKNOWLEDGMENTS}{xii}
+\pagebreak [3]
+\contentsline {chaphd}{CHAPTER}{1}
+\nopagebreak 
+\contentsline {chapter}{\numberline {1}COMPUTATIONAL GEOMETRY}{1}
+\contentsline {section}{\numberline {1.1}Introduction}{1}
+\contentsline {section}{\numberline {1.2}Research Objective}{2}
+\contentsline {section}{\numberline {1.3}Applications}{2}
+\contentsline {subsection}{\numberline {1.3.1}Computer Graphics and Imaging}{2}
+\contentsline {subsection}{\numberline {1.3.2}Robotics}{3}
+\contentsline {subsection}{\numberline {1.3.3}Manufacturing and Product Design}{3}
+\contentsline {subsection}{\numberline {1.3.4}Molecular Biology}{4}
+\contentsline {chapter}{\numberline {2}BACKGROUND}{6}
+\contentsline {section}{\numberline {2.1}Algorithms}{7}
+\contentsline {subsection}{\numberline {2.1.1}Voronoi Diagram}{7}
+\contentsline {subsection}{\numberline {2.1.2}Polygon Triangulation}{8}
+\contentsline {subsection}{\numberline {2.1.3}Point Location}{8}
+\contentsline {subsection}{\numberline {2.1.4}Delaunay Triangulation}{8}
+\contentsline {section}{\numberline {2.2}Maps and Geographic Information Science (GIS)}{9}
+\contentsline {section}{\numberline {2.3}Supporting Research}{11}
+\contentsline {chapter}{\numberline {3}LINE SEGMENT INTERSECTION}{13}
+\contentsline {section}{\numberline {3.1}Problem Definition}{13}
+\contentsline {section}{\numberline {3.2}Potential Solution}{14}
+\contentsline {section}{\numberline {3.3}Draft of the Algorithm}{15}
+\contentsline {section}{\numberline {3.4}Some Problems and their Solutions}{16}
+\contentsline {chapter}{\numberline {4}THE ALGORITHM}{21}
+\contentsline {section}{\numberline {4.1}Data structures}{21}
+\contentsline {section}{\numberline {4.2}Implementation}{22}
+\contentsline {section}{\numberline {4.3}Status Structure $\tau $}{23}
+\contentsline {section}{\numberline {4.4}Formal Algorithm}{24}
+\contentsline {section}{\numberline {4.5}Time Complexity}{27}
+\contentsline {chapter}{\numberline {5}BINARY SEARCH TREES}{28}
+\contentsline {section}{\numberline {5.1}Definition and Properties}{28}
+\contentsline {section}{\numberline {5.2}Terms}{28}
+\contentsline {section}{\numberline {5.3}AVL Tree}{29}
+\contentsline {section}{\numberline {5.4}Special Algorithm Requirement}{30}
+\contentsline {section}{\numberline {5.5}Tree Rotations}{30}
+\contentsline {section}{\numberline {5.6}Importance of balacing a tree}{31}
+\contentsline {section}{\numberline {5.7}Tree rotations in order to balance a tree}{31}
+\contentsline {section}{\numberline {5.8}Tree Node Insertion}{34}
+\contentsline {section}{\numberline {5.9}Tree Node Deletion}{35}
+\contentsline {chapter}{\numberline {6}ESSENTIAL CONTRIBUTIONS OF THIS THESIS}{38}
+\contentsline {section}{\numberline {6.1}Crux of the thesis}{38}
+\contentsline {section}{\numberline {6.2}Tree rotations}{40}
+\contentsline {section}{\numberline {6.3}Good Geometric Algorithm}{41}
+\contentsline {section}{\numberline {6.4}Space Complexity}{41}
+\contentsline {section}{\numberline {6.5}Time Complexity}{42}
+\contentsline {chapter}{\numberline {7}IMPLEMENTATION}{43}
+\contentsline {section}{\numberline {7.1}Technology Used}{43}
+\contentsline {section}{\numberline {7.2}Implementation Details}{43}
+\contentsline {section}{\numberline {7.3}Lessons Learnt}{45}
+\contentsline {section}{\numberline {7.4}Architecture}{46}
+\contentsline {chapter}{\numberline {8}RESULTS AND DISCUSSION}{48}
+\contentsline {section}{\numberline {8.1}Sample Output}{48}
+\contentsline {section}{\numberline {8.2}Results}{50}
+\contentsline {section}{\numberline {8.3}Discussion}{50}
+\contentsline {chapter}{\numberline {9}CONCLUSION}{51}
+\contentsline {chapter}{\numberline {10}FUTURE ENHANCEMENTS}{52}
+\contentsline {schapter}{BIBLIOGRAPHY}{53}
+\pagebreak [3]
+\contentsline {chaphd}{APPENDICES}{55}
+\nopagebreak 
+\contentsline {chapter}{\numberline {A}GLOSSARY AND ACRONYMS}{56}
+\contentsline {chapter}{\numberline {B}ALGORITHM PSEUDO CODE}{58}
+\contentsline {chapter}{\numberline {C}RANDOM NUMBER GENERATION CODE}{61}

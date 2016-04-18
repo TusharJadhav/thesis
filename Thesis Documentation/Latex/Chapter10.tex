@@ -1,0 +1,28 @@
+% Note that if you want something in single space you can go back and
+% forth between single space and normal space by the use of \ssp and
+% \nsp.  If you want doublespacing you can use \dsp.  \nsp is normally
+% 1.5 spacing unless you use the doublespace option (or savepaper
+% option)
+%
+%(FORMAT) usually you *don't* want to mess with the spacing for your
+%(FORMAT) final version.  If you think/know that the thesis template
+%(FORMAT) and/or thesis style file is incorrect/incomplete, PLEASE
+%(FORMAT) contact the maintainer.  THANK YOU!!!
+
+\chapter{FUTURE ENHANCEMENTS}
+\label{chap:enhancements}
+% by labeling the chapter, I can refer to it later using the
+% label. (\ref{chap:enhancements}, \pageref{chap:enhancements}) Latex will take care
+% of the numbering.
+
+Initially the program does not have any graphical user interface (GUI) and spits out the output on console. The main focus of the thesis was to understand and implement the basic algorithm and also propose an enhancement to the primary data structure used in the algorithm. Providing a GUI for this algorithm is not too difficult if not trivial and the solution for the source code had already been dynamically linked with Microsoft Foundation Classes (MFC) and linked with Microsoft Active Template Library (ATL COM) libraries so that GUI can be easily programmed. In-fact an ActiveX Control would be the perfect solution for the GUI so that future students/ researchers can benefit greatly by understanding the algorithm graphically.
+
+I personally found it very difficult to visualize the way data structures were maintained internally and would have loved to watch it being modified at each step of the algorithm when event points were being handled. The text book \cite{TEXTBOOK1} does fails to explain in detail the implementation details of the AVL tree which is used in the algorithm and especially the implementation of Insert, Update and Delete functions while following the rule that each internal node needs to store the right most child in its left subtree. Also it was difficult to find any implementation details about this on the internet or any paper published in this matter. I think future students would greatly benefit by the documentation I have provided on this matter but it also might be a good idea to show the graphical animated version of the AVL tree being modified as the sweep line handles the event points in the algorithm. Below is a consolidated list of future enhancements which could be done to the thesis program.
+\begin{enumerate}
+\item Refactor the code according to the recent MVVM (Model-View-View Model) design pattern.
+\item Provide a Graphical User Interface (GUI) in ActiveX Control, WPF or Silverlight.
+\item Show the actual data structures in real time with animation as they are modified by the algorithm.
+\item Provide an SDK (Software Development Kit) so that developers can use the code in their program using the API's (Application Programming Interface). 
+\item Write Unit tests for the project.
+\item Submit the project to the ``CGAL" (Computational Geometry Algorithms Library) open source community \cite{CGAL} after thorough testing.
+\end{enumerate}

@@ -1,0 +1,86 @@
+% Note that if you want something in single space you can go back and
+% forth between single space and normal space by the use of \ssp and
+% \nsp.  If you want doublespacing you can use \dsp.  \nsp is normally
+% 1.5 spacing unless you use the doublespace option (or savepaper
+% option)
+%
+%(FORMAT) usually you *don't* want to mess with the spacing for your
+%(FORMAT) final version.  If you think/know that the thesis template
+%(FORMAT) and/or thesis style file is incorrect/incomplete, PLEASE
+%(FORMAT) contact the maintainer.  THANK YOU!!!
+
+\chapter{IMPLEMENTATION}
+\label{chap:chapter5}
+% by labeling the chapter, I can refer to it later using the
+% label. (\ref{chap:chapter5}, \pageref{chap:chapter5}) Latex will take care
+% of the numbering.
+
+\section{Technology Used}
+
+The line sweep algorithm has been developed purely in C++ language without any dependency on any third party library. Although this algorithm could have been implemented in any language or platform of choice, C++ was selected because of its high performance and easy pointer manipulation. The program was tested successfully on Windows platform. The development was initially started using Visual Studio 2008 but later upgraded to Visual Studio 2010 and finally to Visual Studio 2012 RC. The visual studio solution for this program has already been statically linked with Microsoft Foundation Library (MFC) and Active Template Library (ATL) Component Object Model (COM).
+
+\section{Implementation Details}
+
+I have tried to follow the best coding practices while implementing the algorithm and have made heavy use of C++ templates while coding the algorithm. Even though the status structure and event queue are two different data structures used for entirely different purpose, the C++ class for them is just one and has only one implementation. This C++ class for AVL tree has been written as a template based class. Event Queue and Status Structure are actually different C++ structures which are provided as template parameters to the AVL tree class. This is the first time I have made use of C++ template on such a large scale and understood the true power of it. Without C++ templates the code for this algorithm would have been unnecessarily bloated and would have been hard to develop and maintain. Below is the sample snippet of the actual header definition of the AVL tree class.
+
+\noindent
+template $<$typename TREETYPE$>$ \newline
+class CAVLTree \newline
+\{ \newline
+\hspace*{2em} private: \newline
+    		\hspace*{4em} $CAVLTreeNode<TREETYPE>* m\_pRoot;$ \newline
+\hspace*{2em} public: \newline
+    		\hspace*{4em} // Constructor \newline
+		     \hspace*{4em} CAVLTree(void); \newline
+    		\hspace*{4em} // Destructor \newline
+    		\hspace*{4em} virtual ~CAVLTree(void); \newline
+\hspace*{2em} . \newline
+\hspace*{2em} . \newline
+\hspace*{2em} . \newline
+\}
+
+The above code snippet should give a little bit idea of the implementation details. It can be seen from the code that it follows Hungarian naming convention \cite{HUNGARIAN} which makes the program more readable. One more contributing factor to the code being more readable and easy to interpret is the considerable usage of operator overloading. Operator overloading is a powerful feature of C++ by which we can redefine what operators do and how they behave under certain circumstances. For instance, consider the CAVLTreeNode class, which represents a node in an AVL Tree and suppose that it had a public method as given below -
+ 
+\noindent
+Class CAVLTreeNode \newline
+\{ \newline
+\hspace*{2em} public: \newline
+	\hspace*{4em} bool IsLessThan(CAVLTreeNode objNodeToCompareWith); \newline
+\}
+
+The above method ``IsLessThan" determines if a node object is less than the other node object that is passed as a parameter. Instead of the above way of coding, this thesis project makes use of operator overloading in the below manner.
+
+\noindent
+Class CAVLTreeNode \newline
+\{ \newline
+\hspace*{2em} public: \newline
+	\hspace*{4em}  bool operator $<$ (CAVLTreeNode objNodeToCompareWith); \newline
+\}
+
+This way it more easy to understand the calling code since it would call, just as we would imagine the normal way of writing obj1 $<$ obj2 rather than obj1.IsLessThan(obj2). The code has also been tested so that it works on Multi-Byte Character set as well as Unicode Character set. All the strings have been stored in resource file so that it should be easy to run the program in a different locale if proper translations are available for the string in a different “Resource only” DLL.
+
+The project has been programmed to generate the lines using random number generator. User would just need to input the total number of lines he/ she wants to run the program with and the program would automatically generate those numbers of lines and perform line sweep algorithm on it. This feature would be very useful if the user wants to see the demonstration of the working of the program on a huge number of lines like 100 or even 1000. That way the user won’t have to manually input the co-ordinate points of those lines. If the user would have to do it manually then it would be imperative to input two set of points for each line, namely the upper point and the lower point. Likewise for 100 and 1000 lines the user would have to input 200 and 2000 points respectively which sounds quite laborious and thus prone to errors. When the GUI for this algorithm is done then it might be a good idea to let the user draw lines using mouse so that the user can give whatever input he/ she wishes.
+
+The algorithm works in two modes. One is the classic algorithm mode as given in the text [1] and the other mode is known as the optimized mode. In optimized mode the algorithm would run with the optimization as stated in the previous chapter where all the leaf node’s would contain the pointers to their left and right neighbors so that the neighbor search operation could be done in constant time instead of {\it O}(log n) time. The two modes of the algorithm can be toggled with the help of a single globally scoped Boolean variable named g\_bOptimizedMode which is defined in ``Globals.cpp" file. To enable the optimized mode we would have to just set the Boolean value to true (g\_bOptimizedMode = true). That would enable the optimized mode and setting the variable to false would disable the optimized mode (g\_bOptimizedMode = false). This behavior can be easily wrapped up in a function so that an intuitive button can be provided to toggle between the two modes of the program. The program can be run in either mode without recompiling. The thesis project has been architected and designed in such a way that giving a GUI to the program should be very easy with least modifications as possible.
+
+\section{Lessons Learnt}
+
+The source code for this thesis project as well the documentation is version controlled using SVN version control software which is freely available as open source software. Proper versioning helps to make sure that the source is properly backed up at one place and also the actual difference can be seen in the source code for different versions. It is very easy and convenient to pull a back copy of a certain file. Version controlling will also make it easy to distribute the code with other users if needed in future. At the very beginning the thesis project was not using any version control software and later it became very hard to manage the code and take backup as the code started increasing which eventually made it imperative to use SVN. SVN was the choice made as it is freely available, open source, popular and in-fact used by many open source software projects, currently being worked upon by hundreds and thousands of developers worldwide.
+
+The most important lesson learnt while developing the thesis project was to not underestimate the importance of memory management. The first working model of the project was working perfectly fine and was returning proper output until when I used CRT runtime library to find out if my program was having any memory leaks. I anticipated that the program would not have any leaks since I was releasing any explicitly allocated memory at proper places and in destructors. To my surprise when I debugged, I found out that the program was leaking 143 kb of memory which was a very small leak. I had the option to leave the program as it is since it was running perfectly fine but somehow it did not appeal me since I knew that there was problem somewhere in the program and it was my duty to fix it even though it might not be profiting me right away. I spend around 2 weeks debugging and trying to fix the memory leaks just so that I would be happy with myself of having fixed the problem. The process of finding the leaks was not so easy. I had to scan and understand the dump statistics of the leaked memory returned by CRT runtime. The more interesting part was that the leaks started increasing as I was trying to solve it. It increased from 143 kb to 180 kb, 350 kb and the highest it went was up to 810 kb. It wasn’t clear if the decision to fix the memory leak was right. I eventually ended up rewriting 60\% of the code. I literally rewrote the module that performs tree rotation, insertion and deletion which was the core code of the research project. I found out that there were some serious bugs in the program even though it was giving out the right output. Surprisingly the tree rotation code was performing the rotation but was incorrectly handling pointer manipulation, as a result of which some nodes were left hanging out orphaned which was causing the memory leak. Even though the output was correct the internal data structure of Event Queue and Status Structure was incorrect. The program generating correct output was a matter was luck and might have failed with some other input. Hence the decision to fix memory leaks was certainly fruitful even though the result was not evident upfront when I took the decision to fix it. Thus the biggest lesson learnt was to never underestimate the memory leaks in the program no matter even if it a small one. There are several good articles and videos out on MSDN which could be useful in understanding the techniques and API’s required in order to find memory leaks. Read MSDN memory leak topic on http://msdn.microsoft.com/en-us/library/x98tx3cf(v=vs.71).aspx.
+
+\section{Architecture}
+
+The code for the thesis project has been architected using the concepts learnt in software architecture class so that the code is easy to develop and maintain further with least modifications as possible. There are basically 6 classes as stated below with a short description of them.
+\begin{enumerate}
+\item CAlgorithm: This class represents the algorithm as the name rightly suggests. This class contains the core logic of the algorithm. The main function which starts the program, interacts with this class. 
+\item CAVLTree: This class represents the tree and contains the code to handle all the tree related operations such as insertion, deletion, left rotation, right rotation etc.
+\item CAVLTreeIterator: This is the iterator class, which provides helper functions to iterate through the tree.
+\item CAVLTreeNode: This is the class, which represents each node of an AVL tree and provides function specific to each node.
+\item CEventQueueData: This class represents the Event Queue and has methods specific to the Event Queue.
+\item Cline: This class represents a line in a Euclidian Space.
+\end{enumerate}
+
+In general the main function interacts with the “CAlgorithm” class. It creates an object of “CAlgorithm” class, which represents an instance of the algorithm. The algorithm then creates two objects of CAVLTree class. One of them represents the Event Queue and the other represents the Status Structure. An object of “CAVLTreeNode” class represents each node of the tree. The algorithm uses “CAVLTreeIterator” whenever it wants to iterate through the tree. Also an object of the “Cline” class would represent each line used thought the algorithm.
+
+The program makes user of the iterator design pattern and hence it has a CAVLTreeIterator class which provides helper methods in iterating through the AVL tree. The classes are loosely coupled with each other so that modification of one class does not affect the other. Also the program makes use of the a global macro defined again in the precompiled header file “stdafx.h” namely SAFEDLETE and SAFEDELETEARRAY which are used throughout the program to delete memory explicitly assigned on the heap.

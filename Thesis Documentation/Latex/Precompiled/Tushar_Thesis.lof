@@ -1,0 +1,28 @@
+\contentsline {figure}{Figure\nobreakspace 1.1. \ignorespaces Robotic arm movement}{4}
+\contentsline {figure}{Figure\nobreakspace 2.1. \ignorespaces Map of USA showing roads and rivers}{11}
+\contentsline {figure}{Figure\nobreakspace 3.1. \ignorespaces Segments in a 2-dimensional space}{14}
+\contentsline {figure}{Figure\nobreakspace 3.2. \ignorespaces Lines showing their orthogonal projection onto Y axis}{16}
+\contentsline {figure}{Figure\nobreakspace 3.3. \ignorespaces Event point of a line}{17}
+\contentsline {figure}{Figure\nobreakspace 3.4. \ignorespaces Lines have new neighbors}{18}
+\contentsline {figure}{Figure\nobreakspace 3.5. \ignorespaces Sweep line progressing through lines}{18}
+\contentsline {figure}{Figure\nobreakspace 3.6. \ignorespaces Sweep line reaching an intersection point}{19}
+\contentsline {figure}{Figure\nobreakspace 3.7. \ignorespaces Snapshot when an intersection point is detected}{20}
+\contentsline {figure}{Figure\nobreakspace 4.1. \ignorespaces Sweep line passing through a horizontal line}{21}
+\contentsline {figure}{Figure\nobreakspace 4.2. \ignorespaces An AVL tree representing a status structure}{22}
+\contentsline {figure}{Figure\nobreakspace 4.3. \ignorespaces Actual lines represented by a status structure}{23}
+\contentsline {figure}{Figure\nobreakspace 4.4. \ignorespaces A snapshot of an instance of sweep line in a running algorithm}{25}
+\contentsline {figure}{Figure\nobreakspace 4.5. \ignorespaces A snapshot of a status structure in a running algorithm}{26}
+\contentsline {figure}{Figure\nobreakspace 5.1. \ignorespaces A binary tree}{29}
+\contentsline {figure}{Figure\nobreakspace 5.2. \ignorespaces Left and right rotations of a tree}{30}
+\contentsline {figure}{Figure\nobreakspace 5.3. \ignorespaces Pictorial representation of rotations causing rebalancing in an AVL tree}{32}
+\contentsline {figure}{Figure\nobreakspace 5.4. \ignorespaces Inserting a new left leaf node}{34}
+\contentsline {figure}{Figure\nobreakspace 5.5. \ignorespaces Inserting a new right leaf node}{35}
+\contentsline {figure}{Figure\nobreakspace 5.6. \ignorespaces Deleting left child of root node of height one}{36}
+\contentsline {figure}{Figure\nobreakspace 5.7. \ignorespaces Deleting a left leaf}{36}
+\contentsline {figure}{Figure\nobreakspace 5.8. \ignorespaces Deleting a right leaf}{37}
+\contentsline {figure}{Figure\nobreakspace 6.1. \ignorespaces A typical balanced AVL tree}{39}
+\contentsline {figure}{Figure\nobreakspace 6.2. \ignorespaces Optimized balanced AVL tree}{40}
+\contentsline {figure}{Figure\nobreakspace 6.3. \ignorespaces Inserting a leaf in-between two leaves in an optimized AVL tree}{40}
+\contentsline {figure}{Figure\nobreakspace 8.1. \ignorespaces Graphical representation of program input}{48}
+\contentsline {figure}{Figure\nobreakspace 8.2. \ignorespaces Program output (non-optimized mode)}{49}
+\contentsline {figure}{Figure\nobreakspace 8.3. \ignorespaces Program output (optimized mode)}{49}
